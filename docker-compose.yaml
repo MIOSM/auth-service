@@ -1,0 +1,45 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.2
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KC_DB=mysql
+      - KC_DB_URL=jdbc:mysql://mysql:3306/keycloak
+      - KC_DB_USERNAME=keycloak
+      - KC_DB_PASSWORD=keycloak
+    ports:
+      - "8082:8080"
+    command: start-dev
+    depends_on:
+      - mysql
+    networks:
+      - miosm
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=keycloak
+      - MYSQL_USER=keycloak
+      - MYSQL_PASSWORD=keycloak
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql-init:/docker-entrypoint-initdb.d
+    networks:
+      - miosm
+
+#  auth-service:
+#    build: .
+#    ports:
+#      - "8081:8081"
+#    depends_on:
+#      - keycloak
+#    networks:
+#      - miosm
+
+networks:
+  miosm:
+    external: true
+    name: MIOSM-network
