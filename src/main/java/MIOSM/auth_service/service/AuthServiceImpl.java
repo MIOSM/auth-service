@@ -184,6 +184,34 @@ public class AuthServiceImpl implements AuthService {
         userServiceClient.createUserProfile(request);
     }
 
+    @Override
+    public LoginResponse refreshToken(String refreshToken) {
+        String url = String.format("%s/realms/%s/protocol/openid-connect/token", keycloakUrl, realm);
+        try {
+            MultiValueMap<String, String> form = new LinkedMultiValueMap<>();
+            form.add("grant_type", "refresh_token");
+            form.add("client_id", clientId);
+            form.add("client_secret", clientSecret);
+            form.add("refresh_token", refreshToken);
+            Map<String, Object> response = webClient.post()
+                .uri(url)
+                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                .body(BodyInserters.fromFormData(form))
+                .retrieve()
+                .bodyToMono(Map.class)
+                .block();
+            return new LoginResponse(
+                (String) response.get("access_token"),
+                (String) response.get("refresh_token"),
+                (String) response.get("token_type"),
+                ((Number) response.get("expires_in")).longValue()
+            );
+        } catch (Exception e) {
+            log.error("Refresh token failed: {}", e.getMessage());
+            throw new AuthServiceException("Refresh token failed: " + e.getMessage());
+        }
+    }
+
     private String getAdminAccessToken() {
         String url = String.format("%s/realms/%s/protocol/openid-connect/token", keycloakUrl, realm);
         MultiValueMap<String, String> form = new LinkedMultiValueMap<>();

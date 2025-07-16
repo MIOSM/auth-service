@@ -15,4 +15,6 @@ public interface AuthService {
     UserInfoResponse getMe(String accessToken);
 
     void createProfile(UUID userId, String username, String bio);
+
+    LoginResponse refreshToken(String refreshToken);
 }

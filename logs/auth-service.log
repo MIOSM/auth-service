@@ -2021,3 +2021,43 @@ Caused by: org.springframework.util.PlaceholderResolutionException: Could not re
 2025-07-16 22:40:53.415 [http-nio-8081-exec-1] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=testuser, password=123qwe
 2025-07-16 22:41:26.188 [http-nio-8081-exec-3] INFO  M.a.service.AuthServiceImpl - Logout: client_id=myclient, client_secret=myclientsecret, refresh_token=eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzYTdmOWM4OS03ODk1LTQ4NGQtYTQ5ZS0yYTllYzVmNWU5YzMifQ.eyJleHAiOjE3NTI3MDAyNTQsImlhdCI6MTc1MjY5ODQ1NCwianRpIjoiODUyYjJjNDUtOGFiZC00MTIxLThkNjItYjQxNDQzYzFmODc2IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgyL3JlYWxtcy9teXJlYWxtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgyL3JlYWxtcy9teXJlYWxtIiwic3ViIjoiYjQ0OWE1YjItM2E4MC00ZTEzLWFkMWYtOGM1ODgxMTUyMWM2IiwidHlwIjoiUmVmcmVzaCIsImF6cCI6Im15Y2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6ImQ2MTRiNzBjLTU0NDktNDE1My1hODY2LTUwZTQxZTUwMzEzNiIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiJkNjE0YjcwYy01NDQ5LTQxNTMtYTg2Ni01MGU0MWU1MDMxMzYifQ.7gdqCdc5EZd4zTpjrJ739P-18ys-dzNuMqOdyUh4QrIKFqlJ01Lby2BdlKM_eIaIxqEPYCaq6RssvNpj9Cbg4g
 2025-07-16 22:41:26.211 [http-nio-8081-exec-3] INFO  M.a.service.AuthServiceImpl - Logout successful
+2025-07-16 22:46:54.773 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 18656 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 22:46:54.781 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 22:46:56.774 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8ad80c62-4f42-3bd1-9f5c-8d4defffbe4d
+2025-07-16 22:46:57.344 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 22:46:57.359 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 22:46:57.364 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 22:46:57.364 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 22:46:57.487 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 22:46:57.489 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2569 ms
+2025-07-16 22:46:58.264 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 22:46:59.503 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 22:46:59.647 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 22:46:59.696 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 22:46:59.741 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 22:46:59.750 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 22:46:59.768 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 22:46:59.768 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 22:46:59.768 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 22:46:59.769 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 22:46:59.769 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 22:46:59.769 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 22:46:59.769 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 22:47:00.497 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 22:47:00.502 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 22:47:00.507 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 22:47:00.513 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752698820510 with initial instances count: 2
+2025-07-16 22:47:00.519 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 22:47:00.520 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752698820520, current=UP, previous=STARTING]
+2025-07-16 22:47:00.524 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 22:47:00.524 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 22:47:00.568 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 22:47:00.570 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 22:47:00.604 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 22:47:00.767 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 7.277 seconds (process running for 8.108)
+2025-07-16 22:48:07.046 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 22:48:07.046 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 22:48:07.048 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-07-16 22:48:07.133 [http-nio-8081-exec-1] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=testuser, password=123qwe
+2025-07-16 22:48:37.645 [http-nio-8081-exec-2] ERROR M.a.exception.GlobalExceptionHandler - Unhandled exception: Request method 'GET' is not supported
+2025-07-16 22:51:59.782 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
