@@ -8,8 +8,16 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.reactive.function.BodyInserters;
 
+import java.util.List;
 import java.util.Map;
+import java.util.UUID;
+import MIOSM.auth_service.client.UserServiceClient;
+import MIOSM.auth_service.dto.CreateUserProfileRequest;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 @Slf4j
 @Service
@@ -17,6 +25,7 @@ import java.util.Map;
 public class AuthServiceImpl implements AuthService {
 
     private final WebClient webClient;
+    private final UserServiceClient userServiceClient;
 
     @Value("${keycloak.auth-server-url}")
     private String keycloakUrl;
@@ -37,12 +46,14 @@ public class AuthServiceImpl implements AuthService {
     private String adminPassword;
 
     @Override
-    public void register(RegisterRequest request) {
+    public UUID register(RegisterRequest request) {
         String token = getAdminAccessToken();
         String url = String.format("%s/admin/realms/%s/users", keycloakUrl, realm);
         Map<String, Object> userPayload = Map.of(
-            "username", request.getEmail(),
+            "username", request.getUsername(),
             "email", request.getEmail(),
+            "firstName", request.getFirstName(),
+            "lastName", request.getLastName(),
             "enabled", true,
             "credentials", new Object[] {
                 Map.of(
@@ -53,7 +64,7 @@ public class AuthServiceImpl implements AuthService {
             }
         );
         try {
-            webClient.post()
+            ResponseEntity<Void> response = webClient.post()
                 .uri(url)
                 .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -61,7 +72,18 @@ public class AuthServiceImpl implements AuthService {
                 .retrieve()
                 .toBodilessEntity()
                 .block();
-            log.info("User {} registered successfully", request.getEmail());
+            String location = response != null && response.getHeaders().getLocation() != null
+                ? response.getHeaders().getLocation().toString()
+                : null;
+            if (location != null && location.contains("/users/")) {
+                String userIdStr = location.substring(location.lastIndexOf("/users/") + 7);
+                UUID userId = UUID.fromString(userIdStr);
+                log.info("User {} registered successfully with id {}", request.getEmail(), userId);
+                return userId;
+            } else {
+                log.error("User registered but could not extract user id from Location header");
+                throw new AuthServiceException("Registration failed: could not extract user id");
+            }
         } catch (Exception e) {
             log.error("Error registering user: {}", e.getMessage());
             throw new AuthServiceException("Registration failed: " + e.getMessage());
@@ -72,17 +94,20 @@ public class AuthServiceImpl implements AuthService {
     public LoginResponse login(LoginRequest request) {
         String url = String.format("%s/realms/%s/protocol/openid-connect/token", keycloakUrl, realm);
         try {
-            Map<String, String> form = Map.of(
-                "grant_type", "password",
-                "client_id", clientId,
-                "client_secret", clientSecret,
-                "username", request.getUsername(),
-                "password", request.getPassword()
-            );
+            MultiValueMap<String, String> form = new LinkedMultiValueMap<>();
+            form.add("grant_type", "password");
+            form.add("client_id", clientId);
+            form.add("client_secret", clientSecret);
+            String login = request.getUsername() != null && !request.getUsername().isBlank()
+                ? request.getUsername()
+                : request.getEmail();
+            form.add("username", login);
+            form.add("password", request.getPassword());
+            log.info("Login attempt: clientId={}, username={}, password={}", clientId, login, request.getPassword());
             Map<String, Object> response = webClient.post()
                 .uri(url)
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .bodyValue(form)
+                .body(BodyInserters.fromFormData(form))
                 .retrieve()
                 .bodyToMono(Map.class)
                 .block();
@@ -102,15 +127,14 @@ public class AuthServiceImpl implements AuthService {
     public void logout(LogoutRequest request) {
         String url = String.format("%s/realms/%s/protocol/openid-connect/logout", keycloakUrl, realm);
         try {
-            Map<String, String> form = Map.of(
-                "client_id", clientId,
-                "client_secret", clientSecret,
-                "refresh_token", request.getRefreshToken()
-            );
+            MultiValueMap<String, String> form = new LinkedMultiValueMap<>();
+            form.add("client_id", clientId);
+            form.add("client_secret", clientSecret);
+            form.add("refresh_token", request.getRefreshToken());
             webClient.post()
                 .uri(url)
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .bodyValue(form)
+                .body(BodyInserters.fromFormData(form))
                 .retrieve()
                 .toBodilessEntity()
                 .block();
@@ -143,19 +167,27 @@ public class AuthServiceImpl implements AuthService {
         }
     }
 
+    @Override
+    public void createProfile(UUID userId, String username, String bio) {
+        CreateUserProfileRequest request = new CreateUserProfileRequest();
+        request.setId(userId);
+        request.setUsername(username);
+        request.setBio(bio);
+        userServiceClient.createUserProfile(request);
+    }
+
     private String getAdminAccessToken() {
         String url = String.format("%s/realms/%s/protocol/openid-connect/token", keycloakUrl, realm);
-        Map<String, String> form = Map.of(
-            "grant_type", "password",
-            "client_id", "admin-cli",
-            "username", adminUsername,
-            "password", adminPassword
-        );
+        MultiValueMap<String, String> form = new LinkedMultiValueMap<>();
+        form.add("grant_type", "password");
+        form.add("client_id", "admin-cli");
+        form.add("username", adminUsername);
+        form.add("password", adminPassword);
         try {
             Map<String, Object> response = webClient.post()
                 .uri(url)
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .bodyValue(form)
+                .body(BodyInserters.fromFormData(form))
                 .retrieve()
                 .bodyToMono(Map.class)
                 .block();

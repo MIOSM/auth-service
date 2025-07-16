@@ -2,16 +2,19 @@ server:
   port: 8081
 
 keycloak:
-  auth-server-url: http://keycloak:8082
+  auth-server-url: http://localhost:8082
   realm: myrealm
   resource: myclient
   credentials:
     secret: myclientsecret
   admin:
-    username: admin
-    password: admin
+    username: test
+    password: test
 
 spring:
+  application:
+    name: auth-service
+
   datasource:
     url: jdbc:mysql://mysql:3306/keycloak
     username: keycloak

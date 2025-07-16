@@ -19,7 +19,7 @@ repositories {
 }
 
 ext {
-	set('springCloudVersion', "2022.0.4")
+	set('springCloudVersion', "2025.0.0")
 }
 
 dependencyManagement {
@@ -33,6 +33,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 	implementation 'org.springframework.security:spring-security-oauth2-jose'
 	implementation 'org.projectlombok:lombok:1.18.38'
 	annotationProcessor 'org.projectlombok:lombok:1.18.38'
