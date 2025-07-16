@@ -103,6 +103,7 @@ public class AuthServiceImpl implements AuthService {
                 : request.getEmail();
             form.add("username", login);
             form.add("password", request.getPassword());
+            form.add("scope", "openid profile email");
             log.info("Login attempt: clientId={}, username={}, password={}", clientId, login, request.getPassword());
             Map<String, Object> response = webClient.post()
                 .uri(url)
@@ -131,16 +132,23 @@ public class AuthServiceImpl implements AuthService {
             form.add("client_id", clientId);
             form.add("client_secret", clientSecret);
             form.add("refresh_token", request.getRefreshToken());
+            log.info("Logout: client_id={}, client_secret={}, refresh_token={}", clientId, clientSecret, request.getRefreshToken());
             webClient.post()
                 .uri(url)
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .body(BodyInserters.fromFormData(form))
                 .retrieve()
+                .onStatus(status -> status.isError(), response ->
+                    response.bodyToMono(String.class).flatMap(body -> {
+                        log.error("Logout failed with status: {}, body: {}", response.statusCode(), body);
+                        return response.createException();
+                    })
+                )
                 .toBodilessEntity()
                 .block();
             log.info("Logout successful");
         } catch (Exception e) {
-            log.error("Logout failed: {}", e.getMessage());
+            log.error("Logout outer catch: {}", e.getMessage(), e);
             throw new AuthServiceException("Logout failed: " + e.getMessage());
         }
     }

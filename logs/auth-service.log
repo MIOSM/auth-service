@@ -1350,3 +1350,674 @@ Caused by: org.springframework.util.PlaceholderResolutionException: Could not re
 2025-07-16 20:30:54.102 [http-nio-8081-exec-2] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=test@example.com, password=123qwe
 2025-07-16 20:35:32.913 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
 2025-07-16 20:37:29.573 [http-nio-8081-exec-3] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=test@example.com, password=123qwe
+2025-07-16 20:54:41.917 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 4848 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 20:54:41.930 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 20:54:43.633 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=b78c5eb6-8b88-3850-beab-29defd507459
+2025-07-16 20:54:44.146 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 20:54:44.162 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 20:54:44.164 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 20:54:44.165 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 20:54:44.275 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 20:54:44.277 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2263 ms
+2025-07-16 20:54:45.176 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 20:54:46.320 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 20:54:46.472 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 20:54:46.524 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 20:54:46.568 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 20:54:46.578 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 20:54:46.594 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 20:54:46.594 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 20:54:46.594 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 20:54:46.594 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 20:54:46.595 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 20:54:46.595 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 20:54:46.595 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 20:54:47.315 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 20:54:47.319 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 20:54:47.323 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 20:54:47.326 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752692087325 with initial instances count: 2
+2025-07-16 20:54:47.334 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 20:54:47.336 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752692087336, current=UP, previous=STARTING]
+2025-07-16 20:54:47.340 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 20:54:47.340 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 20:54:47.400 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 20:54:47.404 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 20:54:47.499 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 20:54:47.733 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 6.919 seconds (process running for 7.812)
+2025-07-16 20:54:54.337 [http-nio-8081-exec-4] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 20:54:54.338 [http-nio-8081-exec-4] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 20:54:54.341 [http-nio-8081-exec-4] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-07-16 20:54:54.422 [http-nio-8081-exec-4] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=test@example.com, password=123qwe
+2025-07-16 20:57:27.307 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 7980 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 20:57:27.314 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 20:57:29.297 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=b78c5eb6-8b88-3850-beab-29defd507459
+2025-07-16 20:57:29.826 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 20:57:29.843 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 20:57:29.847 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 20:57:29.848 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 20:57:29.954 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 20:57:29.957 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2551 ms
+2025-07-16 20:57:31.112 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 20:57:32.310 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 20:57:32.441 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 20:57:32.508 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 20:57:32.552 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 20:57:32.563 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 20:57:32.578 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 20:57:32.578 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 20:57:32.578 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 20:57:32.578 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 20:57:32.578 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 20:57:32.579 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 20:57:32.579 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 20:57:33.273 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 20:57:33.276 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 20:57:33.279 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 20:57:33.283 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752692253281 with initial instances count: 3
+2025-07-16 20:57:33.289 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 20:57:33.290 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752692253290, current=UP, previous=STARTING]
+2025-07-16 20:57:33.293 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 20:57:33.293 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 20:57:33.337 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 20:57:33.339 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 20:57:33.369 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 20:57:33.507 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 7.309 seconds (process running for 8.184)
+2025-07-16 20:57:47.020 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 20:57:47.020 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 20:57:47.022 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-16 20:58:05.488 [http-nio-8081-exec-2] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=test@example.com, password=123qwe
+2025-07-16 20:59:21.908 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 11804 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 20:59:21.916 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 20:59:24.281 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=b78c5eb6-8b88-3850-beab-29defd507459
+2025-07-16 20:59:25.128 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 20:59:25.143 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 20:59:25.146 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 20:59:25.146 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 20:59:25.258 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 20:59:25.260 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3233 ms
+2025-07-16 20:59:26.204 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 20:59:27.457 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 20:59:27.693 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 20:59:27.781 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 20:59:27.907 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 20:59:27.927 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 20:59:27.964 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 20:59:27.965 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 20:59:27.965 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 20:59:27.965 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 20:59:27.965 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 20:59:27.965 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 20:59:27.965 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 20:59:28.583 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 20:59:28.586 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 20:59:28.588 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 20:59:28.591 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752692368589 with initial instances count: 3
+2025-07-16 20:59:28.596 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 20:59:28.596 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752692368596, current=UP, previous=STARTING]
+2025-07-16 20:59:28.599 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 20:59:28.599 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 20:59:28.630 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 20:59:28.632 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 20:59:28.664 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 20:59:28.802 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 8.359 seconds (process running for 9.344)
+2025-07-16 21:01:04.512 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 21:01:04.513 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 21:01:04.514 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-16 21:03:49.941 [http-nio-8081-exec-6] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=test@example.com, password=123qwe
+2025-07-16 21:04:03.900 [http-nio-8081-exec-7] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=null, password=123qwe
+2025-07-16 21:04:03.943 [http-nio-8081-exec-7] ERROR M.a.service.AuthServiceImpl - Login failed: 401 Unauthorized from POST http://localhost:8082/realms/myrealm/protocol/openid-connect/token
+2025-07-16 21:04:03.944 [http-nio-8081-exec-7] ERROR M.a.controller.AuthController - Login error: Login failed: 401 Unauthorized from POST http://localhost:8082/realms/myrealm/protocol/openid-connect/token
+2025-07-16 21:04:11.363 [http-nio-8081-exec-8] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=testuser, password=123qwe
+2025-07-16 21:04:27.978 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 21:05:11.859 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 1688 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 21:05:11.864 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 21:05:13.670 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=b78c5eb6-8b88-3850-beab-29defd507459
+2025-07-16 21:05:14.125 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 21:05:14.138 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:05:14.140 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 21:05:14.141 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 21:05:14.246 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 21:05:14.248 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2296 ms
+2025-07-16 21:05:15.093 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 21:05:16.272 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 21:05:16.419 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 21:05:16.480 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 21:05:16.521 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 21:05:16.529 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 21:05:16.545 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 21:05:16.545 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 21:05:16.546 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 21:05:16.546 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 21:05:16.546 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 21:05:16.546 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 21:05:16.546 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 21:05:17.278 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 21:05:17.284 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 21:05:17.290 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 21:05:17.296 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752692717292 with initial instances count: 3
+2025-07-16 21:05:17.304 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 21:05:17.305 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752692717305, current=UP, previous=STARTING]
+2025-07-16 21:05:17.308 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 21:05:17.308 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:05:17.352 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 21:05:17.354 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 21:05:17.393 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 21:05:17.528 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 6.746 seconds (process running for 7.702)
+2025-07-16 21:05:22.253 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 21:05:22.253 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 21:05:22.255 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-16 21:06:42.678 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 21328 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 21:06:42.683 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 21:06:44.549 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=b78c5eb6-8b88-3850-beab-29defd507459
+2025-07-16 21:06:45.062 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 21:06:45.075 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:06:45.078 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 21:06:45.078 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 21:06:45.184 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 21:06:45.186 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2410 ms
+2025-07-16 21:06:46.050 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 21:06:47.249 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 21:06:47.403 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 21:06:47.461 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 21:06:47.500 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 21:06:47.508 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 21:06:47.525 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 21:06:47.525 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 21:06:47.526 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 21:06:47.526 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 21:06:47.526 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 21:06:47.526 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 21:06:47.526 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 21:06:48.319 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 21:06:48.322 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 21:06:48.325 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 21:06:48.329 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752692808327 with initial instances count: 3
+2025-07-16 21:06:48.336 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 21:06:48.336 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752692808336, current=UP, previous=STARTING]
+2025-07-16 21:06:48.339 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 21:06:48.339 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:06:48.380 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 21:06:48.382 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 21:06:48.416 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 21:06:48.555 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 6.969 seconds (process running for 8.047)
+2025-07-16 21:06:57.991 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 21:06:58.021 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 21:06:58.029 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2025-07-16 21:08:50.350 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 18624 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 21:08:50.356 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 21:08:52.126 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=b78c5eb6-8b88-3850-beab-29defd507459
+2025-07-16 21:08:52.621 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 21:08:52.634 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:08:52.636 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 21:08:52.637 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 21:08:52.740 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 21:08:52.742 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2308 ms
+2025-07-16 21:08:53.548 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 21:08:54.729 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 21:08:54.868 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 21:08:54.921 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 21:08:54.957 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 21:08:54.964 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 21:08:54.978 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 21:08:54.978 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 21:08:54.978 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 21:08:54.979 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 21:08:54.979 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 21:08:54.979 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 21:08:54.979 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 21:08:55.707 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 21:08:55.712 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 21:08:55.716 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 21:08:55.720 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752692935719 with initial instances count: 3
+2025-07-16 21:08:55.728 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 21:08:55.730 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752692935729, current=UP, previous=STARTING]
+2025-07-16 21:08:55.733 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 21:08:55.733 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:08:55.775 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 21:08:55.778 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 21:08:55.854 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 21:08:55.971 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 6.765 seconds (process running for 7.663)
+2025-07-16 21:09:21.517 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 21:09:21.517 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 21:09:21.519 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-16 21:09:21.581 [http-nio-8081-exec-1] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=testuser, password=123qwe
+2025-07-16 21:13:26.940 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 17000 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 21:13:26.946 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 21:13:28.972 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=b78c5eb6-8b88-3850-beab-29defd507459
+2025-07-16 21:13:29.410 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 21:13:29.424 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:13:29.430 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 21:13:29.430 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 21:13:29.542 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 21:13:29.545 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2520 ms
+2025-07-16 21:13:30.372 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 21:13:31.788 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 21:13:31.941 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 21:13:31.997 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 21:13:32.042 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 21:13:32.050 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 21:13:32.072 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 21:13:32.073 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 21:13:32.073 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 21:13:32.073 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 21:13:32.073 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 21:13:32.073 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 21:13:32.073 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 21:13:32.795 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 21:13:32.798 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 21:13:32.801 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 21:13:32.805 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752693212803 with initial instances count: 3
+2025-07-16 21:13:32.810 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 21:13:32.811 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752693212811, current=UP, previous=STARTING]
+2025-07-16 21:13:32.815 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:13:32.816 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 21:13:32.873 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 21:13:32.875 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 21:13:32.911 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 21:13:33.058 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 7.232 seconds (process running for 8.111)
+2025-07-16 21:13:37.517 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 21:13:37.518 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 21:13:37.520 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-07-16 21:16:51.124 [http-nio-8081-exec-4] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=testuser, password=123qwe
+2025-07-16 21:18:32.082 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 21:21:29.453 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 6984 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 21:21:29.461 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 21:21:31.666 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=b78c5eb6-8b88-3850-beab-29defd507459
+2025-07-16 21:21:32.156 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 21:21:32.169 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:21:32.172 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 21:21:32.172 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 21:21:32.297 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 21:21:32.299 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2722 ms
+2025-07-16 21:21:33.139 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 21:21:34.327 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 21:21:34.497 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 21:21:34.549 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 21:21:34.602 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 21:21:34.611 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 21:21:34.631 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 21:21:34.632 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 21:21:34.632 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 21:21:34.632 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 21:21:34.632 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 21:21:34.632 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 21:21:34.632 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 21:21:35.355 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 21:21:35.360 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 21:21:35.363 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 21:21:35.366 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752693695365 with initial instances count: 3
+2025-07-16 21:21:35.372 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 21:21:35.373 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752693695373, current=UP, previous=STARTING]
+2025-07-16 21:21:35.375 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:21:35.376 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 21:21:35.411 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 21:21:35.413 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 21:21:35.453 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 21:21:35.594 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 7.357 seconds (process running for 8.311)
+2025-07-16 21:21:39.283 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 21:21:39.283 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 21:21:39.284 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-16 21:22:40.466 [http-nio-8081-exec-3] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=testuser, password=123qwe
+2025-07-16 21:25:52.022 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 5696 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 21:25:52.028 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 21:25:54.146 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=b78c5eb6-8b88-3850-beab-29defd507459
+2025-07-16 21:25:55.185 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 21:25:55.201 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:25:55.204 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 21:25:55.205 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 21:25:55.336 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 21:25:55.340 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3223 ms
+2025-07-16 21:25:56.374 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 21:25:57.848 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 21:25:58.052 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 21:25:58.131 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 21:25:58.186 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 21:25:58.198 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 21:25:58.219 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 21:25:58.219 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 21:25:58.219 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 21:25:58.220 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 21:25:58.220 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 21:25:58.220 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 21:25:58.220 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 21:25:59.445 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 21:25:59.449 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 21:25:59.453 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 21:25:59.458 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752693959456 with initial instances count: 3
+2025-07-16 21:25:59.465 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 21:25:59.466 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752693959466, current=UP, previous=STARTING]
+2025-07-16 21:25:59.471 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 21:25:59.471 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:25:59.510 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 21:25:59.514 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 21:25:59.560 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 21:25:59.737 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 8.932 seconds (process running for 9.854)
+2025-07-16 21:26:06.203 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 21:26:06.203 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 21:26:06.204 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-16 21:27:20.253 [http-nio-8081-exec-5] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=testuser, password=123qwe
+2025-07-16 21:30:49.899 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 13628 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 21:30:49.904 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 21:30:52.220 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=b78c5eb6-8b88-3850-beab-29defd507459
+2025-07-16 21:30:52.988 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 21:30:53.006 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:30:53.009 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 21:30:53.010 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 21:30:53.151 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 21:30:53.156 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3161 ms
+2025-07-16 21:30:54.350 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 21:30:55.579 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 21:30:55.781 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 21:30:55.838 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 21:30:55.879 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 21:30:55.886 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 21:30:55.911 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 21:30:55.912 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 21:30:55.913 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 21:30:55.914 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 21:30:55.914 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 21:30:55.915 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 21:30:55.915 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 21:30:56.938 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 21:30:56.942 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 21:30:56.945 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 21:30:56.948 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752694256947 with initial instances count: 3
+2025-07-16 21:30:56.955 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 21:30:56.956 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752694256956, current=UP, previous=STARTING]
+2025-07-16 21:30:56.959 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 21:30:56.959 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:30:56.995 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 21:30:56.997 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 21:30:57.040 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 21:30:57.203 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 8.657 seconds (process running for 10.992)
+2025-07-16 21:31:31.790 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 21:31:31.791 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 21:31:31.794 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-16 21:31:31.891 [http-nio-8081-exec-1] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=testuser, password=123qwe
+2025-07-16 21:34:24.052 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 13748 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 21:34:24.056 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 21:34:25.833 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=b78c5eb6-8b88-3850-beab-29defd507459
+2025-07-16 21:34:26.323 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 21:34:26.337 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:34:26.339 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 21:34:26.340 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 21:34:26.446 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 21:34:26.448 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2316 ms
+2025-07-16 21:34:27.321 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 21:34:28.493 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 21:34:28.648 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 21:34:28.708 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 21:34:28.778 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 21:34:28.789 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 21:34:28.806 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 21:34:28.806 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 21:34:28.806 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 21:34:28.806 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 21:34:28.807 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 21:34:28.807 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 21:34:28.807 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 21:34:29.669 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 21:34:29.672 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 21:34:29.677 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 21:34:29.679 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752694469677 with initial instances count: 3
+2025-07-16 21:34:29.685 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 21:34:29.686 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752694469686, current=UP, previous=STARTING]
+2025-07-16 21:34:29.689 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 21:34:29.690 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:34:29.726 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 21:34:29.728 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 21:34:29.764 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 21:34:29.904 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 6.979 seconds (process running for 7.912)
+2025-07-16 21:34:51.616 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 21:34:51.617 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 21:34:51.618 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-16 21:39:28.821 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 21:44:30.797 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 21:49:30.808 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 21:54:30.823 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 21:55:08.070 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 11140 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 21:55:08.075 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 21:55:09.951 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=b78c5eb6-8b88-3850-beab-29defd507459
+2025-07-16 21:55:10.515 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 21:55:10.529 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:55:10.533 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 21:55:10.533 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 21:55:10.652 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 21:55:10.654 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2486 ms
+2025-07-16 21:55:11.481 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 21:55:12.851 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 21:55:13.003 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 21:55:13.056 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 21:55:13.095 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 21:55:13.103 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 21:55:13.120 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 21:55:13.120 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 21:55:13.120 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 21:55:13.120 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 21:55:13.120 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 21:55:13.120 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 21:55:13.121 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 21:55:13.864 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 21:55:13.868 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 21:55:13.871 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 21:55:13.874 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752695713872 with initial instances count: 3
+2025-07-16 21:55:13.880 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 21:55:13.881 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752695713881, current=UP, previous=STARTING]
+2025-07-16 21:55:13.884 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 21:55:13.884 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 21:55:13.930 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 21:55:13.932 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 21:55:13.964 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 21:55:14.104 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 7.378 seconds (process running for 8.482)
+2025-07-16 21:55:29.878 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 21:55:29.878 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 21:55:29.880 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-16 21:55:29.944 [http-nio-8081-exec-1] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=testuser, password=123qwe
+2025-07-16 21:55:39.618 [http-nio-8081-exec-2] INFO  M.a.service.AuthServiceImpl - === LOGOUT CONTROLLER CALLED ===
+2025-07-16 21:55:39.619 [http-nio-8081-exec-2] INFO  M.a.service.AuthServiceImpl - LogoutRequest.refreshToken = 'MIOSM.auth_service.dto.LogoutRequest@4c584607'
+2025-07-16 21:55:39.619 [http-nio-8081-exec-2] INFO  M.a.service.AuthServiceImpl - Logout: client_id=myclient, client_secret=myclientsecret, refresh_token=eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzYTdmOWM4OS03ODk1LTQ4NGQtYTQ5ZS0yYTllYzVmNWU5YzMifQ.eyJleHAiOjE3NTI2OTc1MzAsImlhdCI6MTc1MjY5NTczMCwianRpIjoiYWJjMWFmNmYtMTZiMi00ZDQyLTkzMDEtNTYxMGE0M2EwNTljIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgyL3JlYWxtcy9teXJlYWxtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgyL3JlYWxtcy9teXJlYWxtIiwic3ViIjoiYjQ0OWE1YjItM2E4MC00ZTEzLWFkMWYtOGM1ODgxMTUyMWM2IiwidHlwIjoiUmVmcmVzaCIsImF6cCI6Im15Y2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6IjFiNTU4MGUwLTdkMDYtNGM1Yi1hNjY2LTE3N2UxMjFmYjk2ZCIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6IjFiNTU4MGUwLTdkMDYtNGM1Yi1hNjY2LTE3N2UxMjFmYjk2ZCJ9.qkawWbCiont4S86r12PBPH5vjlGsF6qR24a9qaDs2LXxOIRINYulSSxgWpgrVEowT5yOM9WHjr-H8fAw4yokuA
+2025-07-16 21:55:39.639 [http-nio-8081-exec-2] INFO  M.a.service.AuthServiceImpl - Logout successful
+2025-07-16 22:00:13.125 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 22:01:11.629 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 20600 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 22:01:11.634 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 22:01:13.627 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8ad80c62-4f42-3bd1-9f5c-8d4defffbe4d
+2025-07-16 22:01:14.101 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 22:01:14.114 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 22:01:14.117 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 22:01:14.117 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 22:01:14.225 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 22:01:14.227 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2511 ms
+2025-07-16 22:01:15.193 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 22:01:16.531 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 22:01:16.690 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 22:01:16.753 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 22:01:16.800 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 22:01:16.808 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 22:01:16.828 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 22:01:16.828 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 22:01:16.828 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 22:01:16.828 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 22:01:16.828 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 22:01:16.829 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 22:01:16.829 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 22:01:17.516 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 22:01:17.519 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 22:01:17.523 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 22:01:17.527 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752696077525 with initial instances count: 3
+2025-07-16 22:01:17.532 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 22:01:17.533 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752696077533, current=UP, previous=STARTING]
+2025-07-16 22:01:17.538 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 22:01:17.538 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 22:01:17.577 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 22:01:17.579 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 22:01:17.615 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 22:01:17.768 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 7.278 seconds (process running for 8.14)
+2025-07-16 22:01:23.802 [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 22:01:23.803 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 22:01:23.804 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-16 22:01:24.716 [http-nio-8081-exec-2] ERROR M.a.service.AuthServiceImpl - Get user info failed: 401 Unauthorized from GET http://localhost:8082/realms/myrealm/protocol/openid-connect/userinfo
+2025-07-16 22:01:24.716 [http-nio-8081-exec-2] ERROR M.a.controller.AuthController - Get user info error: Get user info failed: 401 Unauthorized from GET http://localhost:8082/realms/myrealm/protocol/openid-connect/userinfo
+2025-07-16 22:01:42.491 [http-nio-8081-exec-3] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=testuser, password=123qwe
+2025-07-16 22:01:54.745 [http-nio-8081-exec-4] ERROR M.a.service.AuthServiceImpl - Get user info failed: 403 Forbidden from GET http://localhost:8082/realms/myrealm/protocol/openid-connect/userinfo
+2025-07-16 22:01:54.746 [http-nio-8081-exec-4] ERROR M.a.controller.AuthController - Get user info error: Get user info failed: 403 Forbidden from GET http://localhost:8082/realms/myrealm/protocol/openid-connect/userinfo
+2025-07-16 22:03:58.218 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 17828 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 22:03:58.223 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 22:04:00.302 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8ad80c62-4f42-3bd1-9f5c-8d4defffbe4d
+2025-07-16 22:04:00.891 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 22:04:00.907 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 22:04:00.911 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 22:04:00.912 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 22:04:01.040 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 22:04:01.043 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2738 ms
+2025-07-16 22:04:02.074 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 22:04:04.193 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 22:04:04.341 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 22:04:04.399 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 22:04:04.441 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 22:04:04.452 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 22:04:04.477 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 22:04:04.479 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 22:04:04.480 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 22:04:04.481 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 22:04:04.481 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 22:04:04.481 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 22:04:04.481 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 22:04:05.437 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 22:04:05.445 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 22:04:05.451 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 22:04:05.456 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752696245454 with initial instances count: 3
+2025-07-16 22:04:05.464 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 22:04:05.465 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752696245465, current=UP, previous=STARTING]
+2025-07-16 22:04:05.468 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 22:04:05.469 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 22:04:05.528 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 22:04:05.532 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 22:04:05.589 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 22:04:06.121 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 9.01 seconds (process running for 10.415)
+2025-07-16 22:04:15.303 [http-nio-8081-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 22:04:15.304 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 22:04:15.306 [http-nio-8081-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-07-16 22:04:34.610 [http-nio-8081-exec-1] INFO  M.a.service.AuthServiceImpl - Logout: client_id=myclient, client_secret=myclientsecret, refresh_token=eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzYTdmOWM4OS03ODk1LTQ4NGQtYTQ5ZS0yYTllYzVmNWU5YzMifQ.eyJleHAiOjE3NTI2OTc5MDMsImlhdCI6MTc1MjY5NjEwMywianRpIjoiN2JkNGExZGYtMDM0YS00MzIyLTk3ZjgtNTJkYjU2NTlhNzc5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgyL3JlYWxtcy9teXJlYWxtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgyL3JlYWxtcy9teXJlYWxtIiwic3ViIjoiYjQ0OWE1YjItM2E4MC00ZTEzLWFkMWYtOGM1ODgxMTUyMWM2IiwidHlwIjoiUmVmcmVzaCIsImF6cCI6Im15Y2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6ImRiNDQ0ODJkLWZlNDYtNDk3Ny05MTY5LTNlOGFmYjJlNzg2NiIsInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImRiNDQ0ODJkLWZlNDYtNDk3Ny05MTY5LTNlOGFmYjJlNzg2NiJ9.6ktGjfmO9f2CKSgxYzS4Qc2LDn-w3eWqcujDv37nN5yv8_ge1-ZO9brPJfWz-efTcEj374_L4FOZknsgwofgMQ
+2025-07-16 22:04:35.097 [http-nio-8081-exec-1] INFO  M.a.service.AuthServiceImpl - Logout successful
+2025-07-16 22:04:45.012 [http-nio-8081-exec-3] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=testuser, password=123qwe
+2025-07-16 22:04:59.291 [http-nio-8081-exec-7] ERROR M.a.service.AuthServiceImpl - Get user info failed: 403 Forbidden from GET http://localhost:8082/realms/myrealm/protocol/openid-connect/userinfo
+2025-07-16 22:04:59.292 [http-nio-8081-exec-7] ERROR M.a.controller.AuthController - Get user info error: Get user info failed: 403 Forbidden from GET http://localhost:8082/realms/myrealm/protocol/openid-connect/userinfo
+2025-07-16 22:05:20.384 [http-nio-8081-exec-4] ERROR M.a.service.AuthServiceImpl - Get user info failed: 403 Forbidden from GET http://localhost:8082/realms/myrealm/protocol/openid-connect/userinfo
+2025-07-16 22:05:20.385 [http-nio-8081-exec-4] ERROR M.a.controller.AuthController - Get user info error: Get user info failed: 403 Forbidden from GET http://localhost:8082/realms/myrealm/protocol/openid-connect/userinfo
+2025-07-16 22:09:04.494 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 22:13:10.249 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 22244 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 22:13:10.256 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 22:13:12.098 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8ad80c62-4f42-3bd1-9f5c-8d4defffbe4d
+2025-07-16 22:13:12.649 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 22:13:12.662 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 22:13:12.666 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 22:13:12.666 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 22:13:12.776 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 22:13:12.778 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2441 ms
+2025-07-16 22:13:13.912 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 22:13:15.227 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 22:13:15.384 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 22:13:15.438 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 22:13:15.480 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 22:13:15.488 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 22:13:15.503 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 22:13:15.504 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 22:13:15.504 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 22:13:15.504 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 22:13:15.504 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 22:13:15.504 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 22:13:15.505 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 22:13:16.330 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 22:13:16.335 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 22:13:16.339 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 22:13:16.344 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752696796341 with initial instances count: 3
+2025-07-16 22:13:16.350 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 22:13:16.352 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752696796352, current=UP, previous=STARTING]
+2025-07-16 22:13:16.355 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 22:13:16.356 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 22:13:16.402 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 22:13:16.404 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 22:13:16.431 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 22:13:16.584 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 7.367 seconds (process running for 8.197)
+2025-07-16 22:13:28.519 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 22:13:28.520 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 22:13:28.521 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-16 22:13:28.591 [http-nio-8081-exec-1] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=testuser, password=123qwe
+2025-07-16 22:32:23.020 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 13212 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 22:32:23.029 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 22:32:25.001 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8ad80c62-4f42-3bd1-9f5c-8d4defffbe4d
+2025-07-16 22:32:25.526 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 22:32:25.545 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 22:32:25.548 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 22:32:25.548 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 22:32:25.721 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 22:32:25.722 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2608 ms
+2025-07-16 22:32:26.536 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 22:32:28.032 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 22:32:28.161 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 22:32:28.209 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 22:32:28.244 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 22:32:28.251 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 22:32:28.265 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 22:32:28.265 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 22:32:28.265 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 22:32:28.265 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 22:32:28.265 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 22:32:28.265 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 22:32:28.265 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 22:32:28.846 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 22:32:28.848 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 22:32:28.851 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 22:32:28.854 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752697948852 with initial instances count: 2
+2025-07-16 22:32:28.862 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 22:32:28.863 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752697948863, current=UP, previous=STARTING]
+2025-07-16 22:32:28.865 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 22:32:28.865 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 22:32:28.896 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 22:32:28.898 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 22:32:28.928 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 22:32:29.083 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 7.184 seconds (process running for 8.044)
+2025-07-16 22:32:36.846 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 22:32:36.847 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 22:32:36.848 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-07-16 22:37:28.268 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 22:40:31.445 [main] INFO  M.a.AuthServiceApplication - Starting AuthServiceApplication using Java 17.0.15 with PID 22128 (E:\miosm\auth-service\build\classes\java\main started by admin in E:\miosm\auth-service)
+2025-07-16 22:40:31.451 [main] INFO  M.a.AuthServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2025-07-16 22:40:33.242 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8ad80c62-4f42-3bd1-9f5c-8d4defffbe4d
+2025-07-16 22:40:33.842 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2025-07-16 22:40:33.857 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2025-07-16 22:40:33.860 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-07-16 22:40:33.860 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-07-16 22:40:33.976 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-07-16 22:40:33.978 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2448 ms
+2025-07-16 22:40:35.115 [main] INFO  o.s.c.o.FeignClientFactoryBean - For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2025-07-16 22:40:36.349 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2025-07-16 22:40:36.504 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-07-16 22:40:36.566 [main] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2025-07-16 22:40:36.607 [main] INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2025-07-16 22:40:36.615 [main] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2025-07-16 22:40:36.632 [main] INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2025-07-16 22:40:36.632 [main] INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2025-07-16 22:40:36.632 [main] INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2025-07-16 22:40:36.632 [main] INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2025-07-16 22:40:36.633 [main] INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2025-07-16 22:40:36.633 [main] INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2025-07-16 22:40:36.633 [main] INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2025-07-16 22:40:37.378 [main] INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2025-07-16 22:40:37.381 [main] INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2025-07-16 22:40:37.383 [main] INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-07-16 22:40:37.388 [main] INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1752698437385 with initial instances count: 3
+2025-07-16 22:40:37.393 [main] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application AUTH-SERVICE with eureka with status UP
+2025-07-16 22:40:37.394 [main] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1752698437394, current=UP, previous=STARTING]
+2025-07-16 22:40:37.397 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2025-07-16 22:40:37.397 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081: registering service...
+2025-07-16 22:40:37.436 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2025-07-16 22:40:37.438 [main] INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8081
+2025-07-16 22:40:37.464 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_AUTH-SERVICE/192.168.137.1:auth-service:8081 - registration status: 204
+2025-07-16 22:40:37.604 [main] INFO  M.a.AuthServiceApplication - Started AuthServiceApplication in 7.289 seconds (process running for 8.173)
+2025-07-16 22:40:53.318 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-07-16 22:40:53.318 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-07-16 22:40:53.320 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-07-16 22:40:53.415 [http-nio-8081-exec-1] INFO  M.a.service.AuthServiceImpl - Login attempt: clientId=myclient, username=testuser, password=123qwe
+2025-07-16 22:41:26.188 [http-nio-8081-exec-3] INFO  M.a.service.AuthServiceImpl - Logout: client_id=myclient, client_secret=myclientsecret, refresh_token=eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzYTdmOWM4OS03ODk1LTQ4NGQtYTQ5ZS0yYTllYzVmNWU5YzMifQ.eyJleHAiOjE3NTI3MDAyNTQsImlhdCI6MTc1MjY5ODQ1NCwianRpIjoiODUyYjJjNDUtOGFiZC00MTIxLThkNjItYjQxNDQzYzFmODc2IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgyL3JlYWxtcy9teXJlYWxtIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgyL3JlYWxtcy9teXJlYWxtIiwic3ViIjoiYjQ0OWE1YjItM2E4MC00ZTEzLWFkMWYtOGM1ODgxMTUyMWM2IiwidHlwIjoiUmVmcmVzaCIsImF6cCI6Im15Y2xpZW50Iiwic2Vzc2lvbl9zdGF0ZSI6ImQ2MTRiNzBjLTU0NDktNDE1My1hODY2LTUwZTQxZTUwMzEzNiIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiJkNjE0YjcwYy01NDQ5LTQxNTMtYTg2Ni01MGU0MWU1MDMxMzYifQ.7gdqCdc5EZd4zTpjrJ739P-18ys-dzNuMqOdyUh4QrIKFqlJ01Lby2BdlKM_eIaIxqEPYCaq6RssvNpj9Cbg4g
+2025-07-16 22:41:26.211 [http-nio-8081-exec-3] INFO  M.a.service.AuthServiceImpl - Logout successful
