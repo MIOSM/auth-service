@@ -12,12 +12,9 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.reactive.function.BodyInserters;
 
-import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import MIOSM.auth_service.client.UserServiceClient;
-import MIOSM.auth_service.dto.CreateUserProfileRequest;
-import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 @Slf4j
 @Service
@@ -79,6 +76,20 @@ public class AuthServiceImpl implements AuthService {
                 String userIdStr = location.substring(location.lastIndexOf("/users/") + 7);
                 UUID userId = UUID.fromString(userIdStr);
                 log.info("User {} registered successfully with id {}", request.getEmail(), userId);
+                
+                try {
+                    CreateUserRequest userRequest = new CreateUserRequest();
+                    userRequest.setId(userId);
+                    userRequest.setUsername(request.getUsername());
+                    userRequest.setBio("");
+                    log.info("Creating user in user-service: id={}, username={}, bio={}", 
+                        userRequest.getId(), userRequest.getUsername(), userRequest.getBio());
+                    userServiceClient.createUser(userRequest);
+                    log.info("User created in user-service with id {}", userId);
+                } catch (Exception e) {
+                    log.error("Failed to create user in user-service: {}", e.getMessage());
+                }
+                
                 return userId;
             } else {
                 log.error("User registered but could not extract user id from Location header");
@@ -173,15 +184,6 @@ public class AuthServiceImpl implements AuthService {
             log.error("Get user info failed: {}", e.getMessage());
             throw new AuthServiceException("Get user info failed: " + e.getMessage());
         }
-    }
-
-    @Override
-    public void createProfile(UUID userId, String username, String bio) {
-        CreateUserProfileRequest request = new CreateUserProfileRequest();
-        request.setId(userId);
-        request.setUsername(username);
-        request.setBio(bio);
-        userServiceClient.createUserProfile(request);
     }
 
     @Override

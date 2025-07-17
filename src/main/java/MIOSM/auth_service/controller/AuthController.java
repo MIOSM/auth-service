@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.Map;
 import java.util.UUID;
-import MIOSM.auth_service.dto.CreateUserProfileRequest;
 
 @Slf4j
 @RestController
@@ -79,17 +78,6 @@ public class AuthController {
         } catch (Exception e) {
             log.error("Get user info error: {}", e.getMessage());
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
-    }
-
-    @PostMapping("/create-profile")
-    public ResponseEntity<Void> createProfile(@RequestBody CreateUserProfileRequest request) {
-        try {
-            authService.createProfile(request.getId(), request.getUsername(), request.getBio());
-            return ResponseEntity.status(HttpStatus.CREATED).build();
-        } catch (Exception e) {
-            log.error("Profile creation error: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 }
