@@ -43,7 +43,7 @@ public class AuthServiceImpl implements AuthService {
     private String adminPassword;
 
     @Override
-    public UUID register(RegisterRequest request) {
+    public LoginResponse register(RegisterRequest request) {
         String token = getAdminAccessToken();
         String url = String.format("%s/admin/realms/%s/users", keycloakUrl, realm);
         Map<String, Object> userPayload = Map.of(
@@ -76,7 +76,6 @@ public class AuthServiceImpl implements AuthService {
                 String userIdStr = location.substring(location.lastIndexOf("/users/") + 7);
                 UUID userId = UUID.fromString(userIdStr);
                 log.info("User {} registered successfully with id {}", request.getEmail(), userId);
-                
                 try {
                     CreateUserRequest userRequest = new CreateUserRequest();
                     userRequest.setId(userId);
@@ -89,8 +88,13 @@ public class AuthServiceImpl implements AuthService {
                 } catch (Exception e) {
                     log.error("Failed to create user in user-service: {}", e.getMessage());
                 }
-                
-                return userId;
+
+                LoginRequest loginRequest = new LoginRequest();
+                loginRequest.setUsername(request.getUsername());
+                loginRequest.setEmail(request.getEmail());
+                loginRequest.setPassword(request.getPassword());
+                LoginResponse loginResponse = login(loginRequest);
+                return loginResponse;
             } else {
                 log.error("User registered but could not extract user id from Location header");
                 throw new AuthServiceException("Registration failed: could not extract user id");

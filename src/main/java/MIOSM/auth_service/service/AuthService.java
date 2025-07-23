@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public interface AuthService {
 
-    UUID register(RegisterRequest request);
+    LoginResponse register(RegisterRequest request);
 
     LoginResponse login(LoginRequest request);
 

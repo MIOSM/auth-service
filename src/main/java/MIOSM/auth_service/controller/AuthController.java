@@ -23,22 +23,38 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
         try {
-            UUID userId = authService.register(request);
-            return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("userId", userId.toString()));
+            LoginResponse loginResponse = authService.register(request);
+            return ResponseEntity.status(HttpStatus.CREATED).body(Map.of(
+                "success", true,
+                "message", "Registration successful!",
+                "accessToken", loginResponse.getAccessToken(),
+                "refreshToken", loginResponse.getRefreshToken(),
+                "tokenType", loginResponse.getTokenType(),
+                "expiresIn", loginResponse.getExpiresIn()
+            ));
         } catch (AuthServiceException e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
+            return ResponseEntity.badRequest().body(Map.of("success", false, "message", e.getMessage()));
         }
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest request) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
         try {
             LoginResponse loginResponse = authService.login(request);
-            return ResponseEntity.ok(loginResponse);
+            UserInfoResponse userInfo = authService.getMe(loginResponse.getAccessToken());
+            return ResponseEntity.ok(Map.of(
+                "success", true,
+                "message", "Login successful!",
+                "token", loginResponse.getAccessToken(),
+                "refreshToken", loginResponse.getRefreshToken(),
+                "tokenType", loginResponse.getTokenType(),
+                "expiresIn", loginResponse.getExpiresIn(),
+                "user", userInfo
+            ));
         } catch (Exception e) {
             log.error("Login error: {}", e.getMessage());
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(new LoginResponse("Login failed", "", "", 0L));
+                    .body(Map.of("success", false, "message", "Login failed."));
         }
     }
 
