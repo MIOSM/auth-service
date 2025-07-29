@@ -2,11 +2,17 @@ package MIOSM.auth_service.client;
 
 import MIOSM.auth_service.dto.CreateUserRequest;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
+import MIOSM.auth_service.dto.UpdateUserRequest;
 
-@FeignClient(name = "user-service", path = "/api/users")
+import java.util.UUID;
+import java.util.Map;
+
+@FeignClient(name = "user-service", url = "http://localhost:8083", path = "/api/users")
 public interface UserServiceClient {
     @PostMapping
     void createUser(@RequestBody CreateUserRequest request);
+
+    @PatchMapping("/{id}")
+    void updateUsername(@PathVariable UUID id, @RequestBody Map<String, String> usernamePayload);
 }

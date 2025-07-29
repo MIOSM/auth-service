@@ -15,4 +15,6 @@ public interface AuthService {
     UserInfoResponse getMe(String accessToken);
 
     LoginResponse refreshToken(String refreshToken);
+
+    void updateUser(UpdateUserRequest request, String accessToken);
 }

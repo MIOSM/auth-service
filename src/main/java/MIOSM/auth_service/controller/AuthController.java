@@ -81,6 +81,21 @@ public class AuthController {
         }
     }
 
+    @PatchMapping("/update")
+    public ResponseEntity<?> updateUser(@RequestBody UpdateUserRequest request, HttpServletRequest httpRequest) {
+        String authHeader = httpRequest.getHeader(HttpHeaders.AUTHORIZATION);
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("success", false, "message", "No token"));
+        }
+        String token = authHeader.substring(7);
+        try {
+            authService.updateUser(request, token);
+            return ResponseEntity.ok(Map.of("success", true, "message", "User updated successfully!"));
+        } catch (AuthServiceException e) {
+            return ResponseEntity.badRequest().body(Map.of("success", false, "message", e.getMessage()));
+        }
+    }
+
     @GetMapping("/me")
     public ResponseEntity<UserInfoResponse> getMe(HttpServletRequest request) {
         String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);

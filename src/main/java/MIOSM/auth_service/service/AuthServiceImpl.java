@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -215,6 +216,68 @@ public class AuthServiceImpl implements AuthService {
         } catch (Exception e) {
             log.error("Refresh token failed: {}", e.getMessage());
             throw new AuthServiceException("Refresh token failed: " + e.getMessage());
+        }
+    }
+
+    @Override
+    @Transactional
+    public void updateUser(UpdateUserRequest request, String accessToken) {
+        String token = getAdminAccessToken();
+        UUID userId = null;
+        Map<String, Object> userInfo = null;
+        try {
+            String userInfoUrl = String.format("%s/realms/%s/protocol/openid-connect/userinfo", keycloakUrl, realm);
+            userInfo = webClient.get()
+                .uri(userInfoUrl)
+                .header(HttpHeaders.AUTHORIZATION, "Bearer " + accessToken)
+                .retrieve()
+                .bodyToMono(java.util.Map.class)
+                .block();
+            if (userInfo == null || userInfo.get("sub") == null) {
+                throw new AuthServiceException("Cannot extract user id from token");
+            }
+            String keycloakId = userInfo.get("sub").toString();
+            userId = UUID.fromString(keycloakId);
+        } catch (Exception e) {
+            log.error("Failed to extract userId from JWT: {}", e.getMessage());
+            throw new AuthServiceException("Failed to extract userId from JWT: " + e.getMessage());
+        }
+
+        try {
+            java.util.Map<String, String> usernamePayload = java.util.Map.of("username", request.getUsername());
+            userServiceClient.updateUsername(userId, usernamePayload);
+        } catch (Exception e) {
+            log.error("Failed to update user in user-service: {}", e.getMessage());
+            throw new AuthServiceException("Update failed in user-service: " + e.getMessage());
+        }
+
+        String keycloakUserUrl = String.format("%s/admin/realms/%s/users/%s", keycloakUrl, realm, userId);
+        Map<String, Object> keycloakPayload = Map.of(
+            "id", userId.toString(),
+            "username", request.getUsername(),
+            "firstName", request.getFirstName(),
+            "lastName", request.getLastName(),
+            "enabled", true
+        );
+        try {
+            webClient.put()
+                .uri(keycloakUserUrl)
+                .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
+                .contentType(MediaType.APPLICATION_JSON)
+                .bodyValue(keycloakPayload)
+                .retrieve()
+                .toBodilessEntity()
+                .block();
+        } catch (Exception e) {
+            log.error("Failed to update user in Keycloak, rolling back user-service: {}", e.getMessage());
+            try {
+                String oldUsername = userInfo.get("preferred_username").toString();
+                java.util.Map<String, String> rollbackPayload = java.util.Map.of("username", oldUsername);
+                userServiceClient.updateUsername(userId, rollbackPayload);
+            } catch (Exception rollbackEx) {
+                log.error("Rollback in user-service failed: {}", rollbackEx.getMessage());
+            }
+            throw new AuthServiceException("Update failed in Keycloak: " + e.getMessage());
         }
     }
 
