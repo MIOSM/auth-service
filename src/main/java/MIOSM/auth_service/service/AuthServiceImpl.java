@@ -44,6 +44,7 @@ public class AuthServiceImpl implements AuthService {
     private String adminPassword;
 
     @Override
+    @Transactional
     public LoginResponse register(RegisterRequest request) {
         String token = getAdminAccessToken();
         String url = String.format("%s/admin/realms/%s/users", keycloakUrl, realm);
@@ -61,6 +62,7 @@ public class AuthServiceImpl implements AuthService {
                 )
             }
         );
+        UUID userId = null;
         try {
             ResponseEntity<Void> response = webClient.post()
                 .uri(url)
@@ -75,7 +77,7 @@ public class AuthServiceImpl implements AuthService {
                 : null;
             if (location != null && location.contains("/users/")) {
                 String userIdStr = location.substring(location.lastIndexOf("/users/") + 7);
-                UUID userId = UUID.fromString(userIdStr);
+                userId = UUID.fromString(userIdStr);
                 log.info("User {} registered successfully with id {}", request.getEmail(), userId);
                 try {
                     CreateUserRequest userRequest = new CreateUserRequest();
@@ -88,6 +90,19 @@ public class AuthServiceImpl implements AuthService {
                     log.info("User created in user-service with id {}", userId);
                 } catch (Exception e) {
                     log.error("Failed to create user in user-service: {}", e.getMessage());
+                    try {
+                        String deleteUrl = String.format("%s/admin/realms/%s/users/%s", keycloakUrl, realm, userId);
+                        webClient.delete()
+                            .uri(deleteUrl)
+                            .header(HttpHeaders.AUTHORIZATION, "Bearer " + token)
+                            .retrieve()
+                            .toBodilessEntity()
+                            .block();
+                        log.info("Rolled back user in Keycloak with id {}", userId);
+                    } catch (Exception ex) {
+                        log.error("Failed to rollback user in Keycloak: {}", ex.getMessage());
+                    }
+                    throw new AuthServiceException("Registration failed: user-service error: " + e.getMessage());
                 }
 
                 LoginRequest loginRequest = new LoginRequest();
