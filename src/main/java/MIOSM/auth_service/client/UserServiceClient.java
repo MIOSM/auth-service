@@ -4,6 +4,7 @@ import MIOSM.auth_service.dto.CreateUserRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 import MIOSM.auth_service.dto.UpdateUserRequest;
+import MIOSM.auth_service.dto.UpdateProfileRequest;
 
 import java.util.UUID;
 import java.util.Map;
@@ -14,5 +15,5 @@ public interface UserServiceClient {
     void createUser(@RequestBody CreateUserRequest request);
 
     @PatchMapping("/{id}")
-    void updateUsername(@PathVariable UUID id, @RequestBody Map<String, String> usernamePayload);
+    void updateProfile(@PathVariable UUID id, @RequestBody UpdateProfileRequest request);
 }

@@ -259,8 +259,8 @@ public class AuthServiceImpl implements AuthService {
         }
 
         try {
-            java.util.Map<String, String> usernamePayload = java.util.Map.of("username", request.getUsername());
-            userServiceClient.updateUsername(userId, usernamePayload);
+            UpdateProfileRequest profileRequest = new UpdateProfileRequest(request.getUsername(), request.getBio());
+            userServiceClient.updateProfile(userId, profileRequest);
         } catch (Exception e) {
             log.error("Failed to update user in user-service: {}", e.getMessage());
             throw new AuthServiceException("Update failed in user-service: " + e.getMessage());
@@ -287,8 +287,8 @@ public class AuthServiceImpl implements AuthService {
             log.error("Failed to update user in Keycloak, rolling back user-service: {}", e.getMessage());
             try {
                 String oldUsername = userInfo.get("preferred_username").toString();
-                java.util.Map<String, String> rollbackPayload = java.util.Map.of("username", oldUsername);
-                userServiceClient.updateUsername(userId, rollbackPayload);
+                UpdateProfileRequest rollbackRequest = new UpdateProfileRequest(oldUsername, null);
+                userServiceClient.updateProfile(userId, rollbackRequest);
             } catch (Exception rollbackEx) {
                 log.error("Rollback in user-service failed: {}", rollbackEx.getMessage());
             }

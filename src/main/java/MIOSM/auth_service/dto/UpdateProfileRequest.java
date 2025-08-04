@@ -1,15 +1,12 @@
 package MIOSM.auth_service.dto;
 
 import lombok.*;
-import java.util.UUID;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateUserRequest {
+public class UpdateProfileRequest {
     private String username;
-    private String firstName;
-    private String lastName;
     private String bio;
-} 
+}
