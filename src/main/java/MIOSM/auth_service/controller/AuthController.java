@@ -84,13 +84,72 @@ public class AuthController {
     @PatchMapping("/update")
     public ResponseEntity<?> updateUser(@RequestBody UpdateUserRequest request, HttpServletRequest httpRequest) {
         String authHeader = httpRequest.getHeader(HttpHeaders.AUTHORIZATION);
+        log.info("Received update request. Auth header: {}", authHeader);
+        
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            log.warn("No valid authorization header found");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("success", false, "message", "No token"));
+        }
+        String token = authHeader.substring(7);
+        log.info("Extracted token: {}", token.substring(0, Math.min(20, token.length())) + "...");
+        
+        try {
+            authService.updateUser(request, token);
+
+            UserInfoResponse userInfo = authService.getMe(token);
+            
+            return ResponseEntity.ok(Map.of(
+                "success", true, 
+                "message", "User updated successfully!",
+                "user", userInfo
+            ));
+        } catch (AuthServiceException e) {
+            log.error("Update user failed: {}", e.getMessage());
+            return ResponseEntity.badRequest().body(Map.of("success", false, "message", e.getMessage()));
+        }
+    }
+
+    @PostMapping("/upload-avatar")
+    public ResponseEntity<?> uploadAvatar(HttpServletRequest httpRequest) {
+        String authHeader = httpRequest.getHeader(HttpHeaders.AUTHORIZATION);
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("success", false, "message", "No token"));
         }
         String token = authHeader.substring(7);
         try {
-            authService.updateUser(request, token);
-            return ResponseEntity.ok(Map.of("success", true, "message", "User updated successfully!"));
+            String avatarUrl = authService.uploadAvatar(httpRequest, token);
+
+            UserInfoResponse userInfo = authService.getMe(token);
+            
+            return ResponseEntity.ok(Map.of(
+                "success", true, 
+                "message", "Avatar uploaded successfully!", 
+                "avatarUrl", avatarUrl,
+                "user", userInfo
+            ));
+        } catch (AuthServiceException e) {
+            return ResponseEntity.badRequest().body(Map.of("success", false, "message", e.getMessage()));
+        }
+    }
+
+    @PostMapping("/upload-cover")
+    public ResponseEntity<?> uploadCover(HttpServletRequest httpRequest) {
+        String authHeader = httpRequest.getHeader(HttpHeaders.AUTHORIZATION);
+        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("success", false, "message", "No token"));
+        }
+        String token = authHeader.substring(7);
+        try {
+            String coverUrl = authService.uploadCover(httpRequest, token);
+
+            UserInfoResponse userInfo = authService.getMe(token);
+            
+            return ResponseEntity.ok(Map.of(
+                "success", true, 
+                "message", "Cover uploaded successfully!", 
+                "coverUrl", coverUrl,
+                "user", userInfo
+            ));
         } catch (AuthServiceException e) {
             return ResponseEntity.badRequest().body(Map.of("success", false, "message", e.getMessage()));
         }

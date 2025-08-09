@@ -5,6 +5,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 import MIOSM.auth_service.dto.UpdateUserRequest;
 import MIOSM.auth_service.dto.UpdateProfileRequest;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 import java.util.Map;
@@ -14,6 +15,15 @@ public interface UserServiceClient {
     @PostMapping
     void createUser(@RequestBody CreateUserRequest request);
 
+    @GetMapping("/id/{id}")
+    Map<String, Object> getUser(@PathVariable UUID id);
+
     @PatchMapping("/{id}")
     void updateProfile(@PathVariable UUID id, @RequestBody UpdateProfileRequest request);
+
+    @PostMapping("/{id}/avatar")
+    Map<String, Object> uploadAvatar(@PathVariable UUID id, @RequestPart("file") MultipartFile file);
+
+    @PostMapping("/{id}/coverImage")
+    Map<String, Object> uploadCoverImage(@PathVariable UUID id, @RequestPart("file") MultipartFile file);
 }

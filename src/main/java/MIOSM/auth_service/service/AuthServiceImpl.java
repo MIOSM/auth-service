@@ -12,10 +12,13 @@ import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.reactive.function.BodyInserters;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import java.util.Map;
 import java.util.UUID;
 import MIOSM.auth_service.client.UserServiceClient;
+import jakarta.servlet.http.HttpServletRequest;
 
 @Slf4j
 @Service
@@ -194,11 +197,23 @@ public class AuthServiceImpl implements AuthService {
                 .retrieve()
                 .bodyToMono(Map.class)
                 .block();
+
+            UUID userId = extractUserIdFromToken(accessToken);
+
+            String bio = "";
+            try {
+                Map<String, Object> userServiceData = userServiceClient.getUser(userId);
+                bio = (String) userServiceData.getOrDefault("bio", "");
+            } catch (Exception e) {
+                log.warn("Failed to get user data from user-service for userId {}: {}", userId, e.getMessage());
+            }
+            
             return new UserInfoResponse(
                 (String) response.get("preferred_username"),
                 (String) response.get("email"),
                 (String) response.get("given_name"),
-                (String) response.get("family_name")
+                (String) response.get("family_name"),
+                bio
             );
         } catch (Exception e) {
             log.error("Get user info failed: {}", e.getMessage());
@@ -315,6 +330,98 @@ public class AuthServiceImpl implements AuthService {
         } catch (Exception e) {
             log.error("Failed to get admin access token: {}", e.getMessage());
             throw new AuthServiceException("Failed to get admin access token: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public String uploadAvatar(HttpServletRequest request, String accessToken) {
+        UUID userId = extractUserIdFromToken(accessToken);
+        
+        if (!(request instanceof MultipartHttpServletRequest)) {
+            throw new AuthServiceException("Invalid request type for file upload");
+        }
+        
+        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+        MultipartFile file = null;
+        
+        for (String partName : multipartRequest.getMultiFileMap().keySet()) {
+            for (MultipartFile multipartFile : multipartRequest.getMultiFileMap().get(partName)) {
+                if (multipartFile.getOriginalFilename() != null && !multipartFile.isEmpty()) {
+                    file = multipartFile;
+                    break;
+                }
+            }
+            if (file != null) break;
+        }
+        
+        if (file == null) {
+            throw new AuthServiceException("No file provided for avatar upload");
+        }
+        
+        try {
+            Map<String, Object> response = userServiceClient.uploadAvatar(userId, file);
+            log.info("Avatar uploaded successfully for user: {}", userId);
+            return response.get("avatarUrl") != null ? response.get("avatarUrl").toString() : null;
+        } catch (Exception e) {
+            log.error("Failed to upload avatar for user {}: {}", userId, e.getMessage());
+            throw new AuthServiceException("Failed to upload avatar: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public String uploadCover(HttpServletRequest request, String accessToken) {
+        UUID userId = extractUserIdFromToken(accessToken);
+        
+        if (!(request instanceof MultipartHttpServletRequest)) {
+            throw new AuthServiceException("Invalid request type for file upload");
+        }
+        
+        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+        MultipartFile file = null;
+        
+        for (String partName : multipartRequest.getMultiFileMap().keySet()) {
+            for (MultipartFile multipartFile : multipartRequest.getMultiFileMap().get(partName)) {
+                if (multipartFile.getOriginalFilename() != null && !multipartFile.isEmpty()) {
+                    file = multipartFile;
+                    break;
+                }
+            }
+            if (file != null) break;
+        }
+        
+        if (file == null) {
+            throw new AuthServiceException("No file provided for cover upload");
+        }
+        
+        try {
+            Map<String, Object> response = userServiceClient.uploadCoverImage(userId, file);
+            log.info("Cover uploaded successfully for user: {}", userId);
+            return response.get("coverImageUrl") != null ? response.get("coverImageUrl").toString() : null;
+        } catch (Exception e) {
+            log.error("Failed to upload cover for user {}: {}", userId, e.getMessage());
+            throw new AuthServiceException("Failed to upload cover: " + e.getMessage());
+        }
+    }
+
+    private UUID extractUserIdFromToken(String accessToken) {
+        try {
+            String userInfoUrl = String.format("%s/realms/%s/protocol/openid-connect/userinfo", keycloakUrl, realm);
+            Map<String, Object> userInfo = webClient.get()
+                .uri(userInfoUrl)
+                .header(HttpHeaders.AUTHORIZATION, "Bearer " + accessToken)
+                .retrieve()
+                .bodyToMono(Map.class)
+                .block();
+            
+            if (userInfo == null || userInfo.get("sub") == null) {
+                throw new AuthServiceException("Cannot extract user id from token");
+            }
+            
+            String keycloakId = userInfo.get("sub").toString();
+            return UUID.fromString(keycloakId);
+        } catch (Exception e) {
+            log.error("Failed to extract userId from JWT: {}", e.getMessage());
+            throw new AuthServiceException("Failed to extract userId from JWT: " + e.getMessage());
         }
     }
 } 
