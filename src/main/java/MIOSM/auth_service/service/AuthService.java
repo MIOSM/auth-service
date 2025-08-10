@@ -4,6 +4,7 @@ import MIOSM.auth_service.dto.*;
 
 import java.util.UUID;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface AuthService {
 
@@ -19,7 +20,7 @@ public interface AuthService {
 
     void updateUser(UpdateUserRequest request, String accessToken);
 
-    String uploadAvatar(HttpServletRequest request, String accessToken);
+    String uploadAvatar(MultipartFile file, String accessToken);
 
-    String uploadCover(HttpServletRequest request, String accessToken);
+    String uploadCover(MultipartFile file, String accessToken);
 }

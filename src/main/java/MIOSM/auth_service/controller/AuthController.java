@@ -9,6 +9,7 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.multipart.MultipartFile;
 import java.util.Map;
 import java.util.UUID;
 
@@ -109,15 +110,15 @@ public class AuthController {
         }
     }
 
-    @PostMapping("/upload-avatar")
-    public ResponseEntity<?> uploadAvatar(HttpServletRequest httpRequest) {
-        String authHeader = httpRequest.getHeader(HttpHeaders.AUTHORIZATION);
+    @PostMapping(value = "/upload-avatar", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<?> uploadAvatar(@RequestPart("file") MultipartFile file, 
+                                         @RequestHeader(value = "Authorization", required = false) String authHeader) {
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("success", false, "message", "No token"));
         }
         String token = authHeader.substring(7);
         try {
-            String avatarUrl = authService.uploadAvatar(httpRequest, token);
+            String avatarUrl = authService.uploadAvatar(file, token);
 
             UserInfoResponse userInfo = authService.getMe(token);
             
@@ -132,15 +133,15 @@ public class AuthController {
         }
     }
 
-    @PostMapping("/upload-cover")
-    public ResponseEntity<?> uploadCover(HttpServletRequest httpRequest) {
-        String authHeader = httpRequest.getHeader(HttpHeaders.AUTHORIZATION);
+    @PostMapping(value = "/upload-cover", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<?> uploadCover(@RequestPart("file") MultipartFile file, 
+                                        @RequestHeader(value = "Authorization", required = false) String authHeader) {
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("success", false, "message", "No token"));
         }
         String token = authHeader.substring(7);
         try {
-            String coverUrl = authService.uploadCover(httpRequest, token);
+            String coverUrl = authService.uploadCover(file, token);
 
             UserInfoResponse userInfo = authService.getMe(token);
             

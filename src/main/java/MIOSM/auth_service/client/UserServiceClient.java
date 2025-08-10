@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.UUID;
 import java.util.Map;
 
-@FeignClient(name = "user-service", url = "http://localhost:8083", path = "/api/users")
+@FeignClient(name = "user-service", url = "http://localhost:8083", path = "/api/users", configuration = MIOSM.auth_service.config.FeignConfig.class)
 public interface UserServiceClient {
     @PostMapping
     void createUser(@RequestBody CreateUserRequest request);
@@ -21,9 +21,9 @@ public interface UserServiceClient {
     @PatchMapping("/{id}")
     void updateProfile(@PathVariable UUID id, @RequestBody UpdateProfileRequest request);
 
-    @PostMapping("/{id}/avatar")
+    @PostMapping(value = "/{id}/avatar", consumes = "multipart/form-data")
     Map<String, Object> uploadAvatar(@PathVariable UUID id, @RequestPart("file") MultipartFile file);
 
-    @PostMapping("/{id}/coverImage")
+    @PostMapping(value = "/{id}/coverImage", consumes = "multipart/form-data")
     Map<String, Object> uploadCoverImage(@PathVariable UUID id, @RequestPart("file") MultipartFile file);
 }

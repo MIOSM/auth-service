@@ -334,27 +334,10 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public String uploadAvatar(HttpServletRequest request, String accessToken) {
+    public String uploadAvatar(MultipartFile file, String accessToken) {
         UUID userId = extractUserIdFromToken(accessToken);
         
-        if (!(request instanceof MultipartHttpServletRequest)) {
-            throw new AuthServiceException("Invalid request type for file upload");
-        }
-        
-        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-        MultipartFile file = null;
-        
-        for (String partName : multipartRequest.getMultiFileMap().keySet()) {
-            for (MultipartFile multipartFile : multipartRequest.getMultiFileMap().get(partName)) {
-                if (multipartFile.getOriginalFilename() != null && !multipartFile.isEmpty()) {
-                    file = multipartFile;
-                    break;
-                }
-            }
-            if (file != null) break;
-        }
-        
-        if (file == null) {
+        if (file == null || file.isEmpty()) {
             throw new AuthServiceException("No file provided for avatar upload");
         }
         
@@ -369,27 +352,10 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public String uploadCover(HttpServletRequest request, String accessToken) {
+    public String uploadCover(MultipartFile file, String accessToken) {
         UUID userId = extractUserIdFromToken(accessToken);
         
-        if (!(request instanceof MultipartHttpServletRequest)) {
-            throw new AuthServiceException("Invalid request type for file upload");
-        }
-        
-        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-        MultipartFile file = null;
-        
-        for (String partName : multipartRequest.getMultiFileMap().keySet()) {
-            for (MultipartFile multipartFile : multipartRequest.getMultiFileMap().get(partName)) {
-                if (multipartFile.getOriginalFilename() != null && !multipartFile.isEmpty()) {
-                    file = multipartFile;
-                    break;
-                }
-            }
-            if (file != null) break;
-        }
-        
-        if (file == null) {
+        if (file == null || file.isEmpty()) {
             throw new AuthServiceException("No file provided for cover upload");
         }
         
