@@ -201,9 +201,13 @@ public class AuthServiceImpl implements AuthService {
             UUID userId = extractUserIdFromToken(accessToken);
 
             String bio = "";
+            String avatar = null;
+            String coverPhoto = null;
             try {
                 Map<String, Object> userServiceData = userServiceClient.getUser(userId);
                 bio = (String) userServiceData.getOrDefault("bio", "");
+                avatar = (String) userServiceData.getOrDefault("avatarUrl", null);
+                coverPhoto = (String) userServiceData.getOrDefault("coverImageUrl", null);
             } catch (Exception e) {
                 log.warn("Failed to get user data from user-service for userId {}: {}", userId, e.getMessage());
             }
@@ -213,7 +217,9 @@ public class AuthServiceImpl implements AuthService {
                 (String) response.get("email"),
                 (String) response.get("given_name"),
                 (String) response.get("family_name"),
-                bio
+                bio,
+                avatar,
+                coverPhoto
             );
         } catch (Exception e) {
             log.error("Get user info failed: {}", e.getMessage());

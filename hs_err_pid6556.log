@@ -1,0 +1,218 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 234881024 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3548), pid=6556, tid=10988
+#
+# JRE version:  (17.0.12+8) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (17.0.12+8-LTS-286, mixed mode, emulated-client, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:TieredStopAtLevel=1 -Dfile.encoding=windows-1250 -Duser.country=PL -Duser.language=pl -Duser.variant MIOSM.auth_service.AuthServiceApplication
+
+Host: AMD Ryzen 5 3550H with Radeon Vega Mobile Gfx  , 8 cores, 13G,  Windows 11 , 64 bit Build 26100 (10.0.26100.4484)
+Time: Mon Aug 11 05:03:21 2025  Windows 11 , 64 bit Build 26100 (10.0.26100.4484) elapsed time: 0.020116 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000022c2a512ba0):  JavaThread "Unknown thread" [_thread_in_vm, id=10988, stack(0x0000007b1db00000,0x0000007b1dc00000)]
+
+Stack: [0x0000007b1db00000,0x0000007b1dc00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x67a04a]
+V  [jvm.dll+0x7da4ed]
+V  [jvm.dll+0x7dbe33]
+V  [jvm.dll+0x7dc4a3]
+V  [jvm.dll+0x24508f]
+V  [jvm.dll+0x677089]
+V  [jvm.dll+0x66bd32]
+V  [jvm.dll+0x301fa6]
+V  [jvm.dll+0x309546]
+V  [jvm.dll+0x359d2e]
+V  [jvm.dll+0x359f5f]
+V  [jvm.dll+0x2d9078]
+V  [jvm.dll+0x2d9fe4]
+V  [jvm.dll+0x7aca21]
+V  [jvm.dll+0x367591]
+V  [jvm.dll+0x78b999]
+V  [jvm.dll+0x3ec83f]
+V  [jvm.dll+0x3ee471]
+C  [jli.dll+0x5297]
+C  [ucrtbase.dll+0x37b0]
+C  [KERNEL32.DLL+0x2e8d7]
+C  [ntdll.dll+0x3c34c]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffd969e7a18, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x0000022c2a572fb0 GCTaskThread "GC Thread#0" [stack: 0x0000007b1dc00000,0x0000007b1dd00000] [id=9556]
+  0x0000022c2a583ae0 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000007b1dd00000,0x0000007b1de00000] [id=8976]
+  0x0000022c2a58c660 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000007b1de00000,0x0000007b1df00000] [id=22296]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffd96219b67]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000022c2a50d4e0] Heap_lock - owner thread: 0x0000022c2a512ba0
+
+Heap address: 0x0000000721000000, size: 3568 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000721000000, 0x0000000800000000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffd96603859]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (1 events):
+Event: 0.011 Loaded shared library C:\Program Files\Java\jdk-17\bin\java.dll
+
+
+Dynamic libraries:
+0x00007ff64cc10000 - 0x00007ff64cc20000 	C:\Program Files\Java\jdk-17\bin\java.exe
+0x00007ffe0ae40000 - 0x00007ffe0b0a8000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffe0a0e0000 - 0x00007ffe0a1a9000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffe087f0000 - 0x00007ffe08bdd000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffe08050000 - 0x00007ffe0819b000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffde4120000 - 0x00007ffde413b000 	C:\Program Files\Java\jdk-17\bin\VCRUNTIME140.dll
+0x00007ffde7fc0000 - 0x00007ffde7fd9000 	C:\Program Files\Java\jdk-17\bin\jli.dll
+0x00007ffe0a2a0000 - 0x00007ffe0a354000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffe0a1b0000 - 0x00007ffe0a259000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffe09250000 - 0x00007ffe092f6000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffe0a360000 - 0x00007ffe0a478000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffe099d0000 - 0x00007ffe09b9c000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffdf2f60000 - 0x00007ffdf31fa000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.4484_none_3e0e6d4ce32ef3b3\COMCTL32.dll
+0x00007ffe087c0000 - 0x00007ffe087e7000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffe0a0b0000 - 0x00007ffe0a0db000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffe08500000 - 0x00007ffe08637000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffe08240000 - 0x00007ffe082e3000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffe00850000 - 0x00007ffe0085b000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffe0a260000 - 0x00007ffe0a28f000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffdfcac0000 - 0x00007ffdfcacc000 	C:\Program Files\Java\jdk-17\bin\vcruntime140_1.dll
+0x00007ffd96b10000 - 0x00007ffd96b9e000 	C:\Program Files\Java\jdk-17\bin\msvcp140.dll
+0x00007ffd95f30000 - 0x00007ffd96b10000 	C:\Program Files\Java\jdk-17\bin\server\jvm.dll
+0x00007ffe08e80000 - 0x00007ffe08e88000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffdfa6b0000 - 0x00007ffdfa6ba000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffe00810000 - 0x00007ffe00845000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffe0ad80000 - 0x00007ffe0adf4000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffe06cf0000 - 0x00007ffe06d0b000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffdf99e0000 - 0x00007ffdf99ea000 	C:\Program Files\Java\jdk-17\bin\jimage.dll
+0x00007ffdfb820000 - 0x00007ffdfba61000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffe09610000 - 0x00007ffe09996000 	C:\WINDOWS\System32\combase.dll
+0x00007ffe08d90000 - 0x00007ffe08e70000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ffdf4a50000 - 0x00007ffdf4a93000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffe081a0000 - 0x00007ffe08239000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffde2cb0000 - 0x00007ffde2cd5000 	C:\Program Files\Java\jdk-17\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.4484_none_3e0e6d4ce32ef3b3;C:\Program Files\Java\jdk-17\bin\server
+
+VM Arguments:
+jvm_args: -XX:TieredStopAtLevel=1 -Dfile.encoding=windows-1250 -Duser.country=PL -Duser.language=pl -Duser.variant 
+java_command: MIOSM.auth_service.AuthServiceApplication
+java_class_path (initial): C:\Users\ASUS\miosm\auth-service\build\classes\java\main;C:\Users\ASUS\miosm\auth-service\build\resources\main;C:\Users\ASUS\.gradle\caches\modules-2\files-2.1\org.springframework.cloud\spring-cloud-starter-netflix-eureka-client\4.3.0\50528e321d9be9a89f542f62605cfad2f3b1eab8\spring-cloud-starter-netflix-eureka-client-4.3.0.jar;C:\Users\ASUS\.gradle\caches\modules-2\files-2.1\org.springframework.cloud\spring-cloud-starter-openfeign\4.3.0\2e45df1083de71b53c5d5bf89aec58b677e9a377\spring-cloud-starter-openfeign-4.3.0.jar;C:\Users\ASUS\.gradle\caches\modules-2\files-2.1\io.github.openfeign\feign-okhttp\13.6\d3fc8d2dcb212afbabbd905bb796f6b212e214f6\feign-okhttp-13.6.jar;C:\Users\ASUS\.gradle\caches\modules-2\files-2.1\io.github.openfeign.form\feign-form-spring\3.8.0\71059f6e16ddbaf0e42f1b1aa0bb60cc2f823e4d\feign-form-spring-3.8.0.jar;C:\Users\ASUS\.gradle\caches\modules-2\files-2.1\io.github.openfeign.form\feign-form\3.8.0\3083889996b18443c275a352d3ab4bc6c8321598\feign-form-3.8.0.jar;C:\Users\ASUS\.gradle\caches\modules-2\files-2.1\org.springframework.security\spring-security-oauth2-jose\6.5.1\7886128a22d12a824e4cdb340d3a22ac8cc6e8a6\spring-security-oauth2-jose-6.5.1.jar;C:\Users\ASUS\.gradle\caches\modules-2\files-2.1\org.projectlombok\lombok\1.18.38\57f8f5e02e92a30fd21b80cbd426a4172b5f8e29\lombok-1.18.38.jar;C:\Users\ASUS\.gradle\caches\modules-2\files-2.1\org.springframework\spring-tx\6.2.8\6b2eecf34f0810dd989f7e7bfa8fd8c86fe28dfb\spring-tx-6.2.8.jar;C:\Users\ASUS\.gradle\caches\modules-2\files-2.1\com.mysql\mysql-connector-j\9.2.0\cc7bed59ccee3c47554aeb89e37c24d95a74bec3\mysql-connector-j-9.2.0.jar;C:\Users\ASUS\.gradle\caches\modules-2\files-2.1\org.springframework.cloud\spring-cloud-starter-loadbalancer\4.3.0\4567330739fc9c8d87dac64a2775e77343423d9f\spring-cloud-starter-loadbalancer-4.3.0.jar;C:\Users\ASUS\.gradle\caches\modules-2\files-2.1\org.springframework.cloud\spring-cloud-starter\4.3.0\8e794c3b8438450bf8d7cfbb936bb05344a54397\spri
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 234881024                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 3741319168                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 0                                      {pd product} {ergonomic}
+     bool ProfileInterpreter                       = false                                  {pd product} {command line}
+    uintx ProfiledCodeHeapSize                     = 0                                      {pd product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 3741319168                             {manageable} {ergonomic}
+     intx TieredStopAtLevel                        = 1                                         {product} {command line}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-17
+PATH=C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\mingw64\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\PuTTY\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Amazon\AWSCLIV2\;C:\Users\ASUS\Documents\tools\apache-maven-3.9.10\bin;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Muse Hub\lib;C:\Gradle\gradle-8.14.3\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\mingw64\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Users\ASUS\AppData\Local\Microsoft\WindowsApps;C:\Users\ASUS\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ASUS\.dotnet\tools;C:\Users\ASUS\AppData\Local\Muse Hub\lib;C:\Users\ASUS\AppData\Roaming\npm;C:\Users\ASUS\Kind;C:\Users\ASUS\AppData\Local\Muse Hub\lib;C:\Users\ASUS\AppData\Local\Microsoft\WindowsApps;C:\eksctl;C:\Users\ASUS\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\ASUS\AppData\Local\Programs\Windsurf\bin
+USERNAME=ASUS
+LANG=en_US.UTF-8
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 26100 (10.0.26100.4484)
+OS uptime: 0 days 9:08 hours
+Hyper-V role detected
+
+CPU: total 8 (initial active 8) (8 cores per cpu, 2 threads per core) family 23 model 24 stepping 1 microcode 0x8108102, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4a, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, hv
+
+Memory: 4k page, system-wide physical 14269M (1923M free)
+TotalPageFile size 24671M (AvailPageFile size 206M)
+current process WorkingSet (physical memory assigned to process): 13M, peak: 13M
+current process commit charge ("private bytes"): 55M, peak: 279M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (17.0.12+8-LTS-286) for windows-amd64 JRE (17.0.12+8-LTS-286), built on Jun  5 2024 06:46:59 by "mach5one" with MS VC++ 17.6 (VS2022)
+
+END.
